@@ -1,0 +1,21 @@
+{% extends 'base.html' %} {% block body %} {% block title %} LOGIN{% endblock %}
+
+
+  <div class="container bg-dark text-light p-4 rounded " style="max-width: 500px;">
+    {% include 'widget/message.html' %}
+    <form method="POST" action="">
+        {% csrf_token %} 
+       <div class="form-group" >
+         <label for="exampleInputEmail1">Email address</label>
+         <input name='email' type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+         
+       </div>
+       <div class="form-group">
+         <label for="exampleInputPassword1">Password</label>
+         <input name='password' type="password" class="form-control" id="exampleInputPassword1">
+       </div>
+       <button type="submit" class="btn btn-primary">Login</button>
+     </form>
+     <a href="{% url 'signup' %}" class="text-light">Not signed in yet? Signup Now</a>
+  </div>
+{% endblock %}

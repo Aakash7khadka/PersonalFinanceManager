@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}
+  Add Income Category
+{% endblock title %}
+
+
+{% block body %}
+  
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    Add Income Category
+                </div>
+                <form method="POST">
+                    {% csrf_token %}
+                    <div class="form-body">
+                        {{form}}
+                    </div>
+                    <hr>
+                    <button type="submit" class="btn btn-success">Save</button>
+                </form>
+            </div>
+        </div>
+    </div>
+  
+</div>
+{% endblock body %}

@@ -1,0 +1,32 @@
+{% extends 'base.html' %} {% block body %}
+<div class="container bg-dark text-light p-4 mt-4 rounded" >
+  {% include "widget/message.html" %}
+    <div class="row"> 
+        <div class="col-sm">
+            <h2 class="text-center">Register Today</h2>
+            <h5 class="text-center">Experience the best finance management</h5>
+        </div>
+        <div class="col-sm">
+        <form method="POST" action="">
+         {% csrf_token %} 
+        <div class="form-group" >
+          <label for="exampleInputEmail1">Email address</label>
+          <input name='email' type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Password</label>
+          <input name='password1' type="password" class="form-control" id="exampleInputPassword1">
+          <label for="exampleInputPassword2">Password Confirm</label>
+          <input name="password2" name='password' type="password" class="form-control" id="exampleInputPassword1">
+          <label for="exampleInputPassword2">Phone</label>
+          <input name="contact" name='password' type="number" class="form-control" id="exampleInputPassword1">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+      <a href="{% url 'signin' %}" class="text-light">Not signed in yet? Signup Now</a>
+    </div>
+    </div>
+
+  </div>
+{% endblock %}
