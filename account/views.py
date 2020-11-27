@@ -4,6 +4,7 @@ from . models import Account
 from django.contrib.auth import authenticate,login,logout
 from django.contrib import messages
 from income.models import IncomeCategory,Income
+from expense.models import ExpenseCategory,Expense
 # Create your views here.
 def signin(request):
     if request.method=="GET":
@@ -54,7 +55,9 @@ def register(request):
 def profile(request):
     incomeCategory=IncomeCategory.objects.filter(user=request.user)[:5]
     income=Income.objects.filter(expense_category__in=incomeCategory)
-    return render(request,'pages/profile.html',{'incomeCategory':incomeCategory,'income':income})
+    expenseCategory=ExpenseCategory.objects.filter(user=request.user)
+    expense=Expense.objects.filter(expense_category__in=expenseCategory)
+    return render(request,'pages/profile.html',{'incomeCategory':incomeCategory,'income':income,'expenseCategory':expenseCategory,'expense':expense})
 
 def signout(request):
     logout(request)

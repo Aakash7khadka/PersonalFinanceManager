@@ -15,7 +15,7 @@ class Expense(models.Model):
     title=models.CharField(max_length=100)
     date=models.DateField()
     amount=models.FloatField()
-    bill=models.ImageField(upload_to='bill/')
+    # bill=models.ImageField(upload_to='bill/',blank=True,null=True)
     expense_category=models.ForeignKey(ExpenseCategory,on_delete=models.CASCADE)
 
     def __str__(self):
