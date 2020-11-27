@@ -5,6 +5,7 @@
   <div class="container">
     {% include "widget/message.html" %}
     <a name="" id="" class="btn btn-primary" href="{% url 'addIncomeCategory' %}" role="button">Add Income Category</a>
+    <a name="" id="" class="btn btn-primary" href="{% url 'addIncome' %}" role="button">Add Income </a>
     <hr>
     <div class="row">
       <div class="col-md-6">
@@ -21,6 +22,23 @@
               <td><a href="{% url 'editIncomeCategory' c.id%}">Edit</a> | <a href="{% url 'deleteIncomeCategory' c.id%}">Delete</a></td>
             </tr>
             
+          {% endfor %}
+        </table>
+        <hr>
+        <table class='table'>
+          <thead>
+            <th>Title</th>
+            <th>Date</th>
+            <th>Amount</th>
+            <th>Action</th>
+          </thead>
+          {% for c in income %}
+            <tr>
+              <td>{{c.title}}</td>
+              <td>{{c.date}}</td>
+              <td>{{c.amount}}</td>
+              <td><a href="{% url 'editIncome' c.id%}">Edit</a> | <a href="{% url 'deleteIncome' c.id%}">Delete</a></td>
+            </tr>
           {% endfor %}
         </table>
       </div>
